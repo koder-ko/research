@@ -24,25 +24,22 @@ class person:
 
 
 people_list = [person("B")]
-
-light = bool(random.randint(0, 1))
-years = 0
-days = 0
+lightfirst = bool(random.randint(0, 1))
+light = lightfirst
+hour = 0
+minit = 0
 
 for i in range(1, 100):
     people_list.append(person("A"))
-
-print(len(people_list))
-
 while True:
     if people_list[0].people_count == 197:
         break
     cur = random.randint(0, 99)
     target = people_list[cur]
     light = target.light_control(light)
-    days += 1
-    if days == 365:
-        years += 1
-        days = 0
+    minit += 1
+    if minit == 60:
+        hour += 1
+        minit = 0
 
-print(f"초기 전등: {light} 걸린 시간) {years}년 {days}일")
+print(f"초기 전등: {lightfirst} 걸린 시간) {hour}시간 {minit}분 => {hour/24}일")
